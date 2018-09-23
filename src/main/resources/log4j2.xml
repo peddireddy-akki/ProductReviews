@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="60">
+	<Properties>
+		<Property name="log-path">C:\\DevTools\\logs</Property>
+	</Properties>
+	<Appenders>
+		<Console name="Console-Appender" target="SYSTEM_OUT">
+			<PatternLayout>
+				<pattern>
+					[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+				</pattern>
+				>
+			</PatternLayout>
+		</Console>
+		<File name="PerformanceLog"
+			fileName="${log-path}/Performance.log">
+			<PatternLayout>
+				<pattern>
+					[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+		</File>
+		<File name="ProductReviews-File-Appender"
+			fileName="${log-path}/ContentModeratorApp.log">
+			<PatternLayout>
+				<pattern>
+					[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+		</File>
+	</Appenders>
+
+	
+	<Loggers>
+		<Logger name="com.akki.productreviews.common.aop.PerformanceLoggerAspect" level="debug"
+			additivity="false">
+			<AppenderRef ref="PerformanceLog" />
+		</Logger>
+		
+		<Logger name="com.akki.productreviews" level="debug" additivity="false">
+			<AppenderRef ref="ProductReviews-File-Appender" />
+		</Logger>		
+	</Loggers>
+</Configuration>
