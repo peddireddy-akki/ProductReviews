@@ -1,4 +1,4 @@
-package com.akki.productreviews.controller.model;
+package com.akki.productreviews.model;
 
 public class ObjectionableKeyWord {
 	

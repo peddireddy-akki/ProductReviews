@@ -15,7 +15,7 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Repository;
 
 import com.akki.productreviews.common.exceptions.AppConfigException;
-import com.akki.productreviews.controller.model.ObjectionableKeyWord;
+import com.akki.productreviews.model.ObjectionableKeyWord;
 
 @Repository
 public class ObjectionableKeyWordContentFileRepositoryImpl implements ObjectionableKeyWordContentRepository {

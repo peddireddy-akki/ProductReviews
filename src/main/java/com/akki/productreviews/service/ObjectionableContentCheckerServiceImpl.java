@@ -14,7 +14,7 @@ import com.akki.productreviews.common.exceptions.AppConfigException;
 import com.akki.productreviews.common.exceptions.ContentSizeException;
 import com.akki.productreviews.common.exceptions.ObjectionableContentFoundException;
 import com.akki.productreviews.controller.ProductReviewsController;
-import com.akki.productreviews.controller.model.ObjectionableKeyWord;
+import com.akki.productreviews.model.ObjectionableKeyWord;
 import com.akki.productreviews.repository.ObjectionableKeyWordContentRepository;
 
 @Service

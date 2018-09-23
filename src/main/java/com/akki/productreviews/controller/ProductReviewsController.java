@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.akki.productreviews.common.exceptions.ApplicationException;
 import com.akki.productreviews.common.exceptions.ContentSizeException;
 import com.akki.productreviews.common.exceptions.ObjectionableContentFoundException;
-import com.akki.productreviews.controller.model.ProductReview;
+import com.akki.productreviews.model.ProductReview;
 import com.akki.productreviews.service.ObjectionableContentCheckerService;
 
 @RestController
