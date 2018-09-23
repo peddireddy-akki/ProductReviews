@@ -1,0 +1,5 @@
+[DEBUG] 2018-09-23 21:56:47.981 [main] PerformanceLoggerAspect - Time Taken by execution(CommandLineRunner com.akki.productreviews.Application.commandLineRunner(ApplicationContext)) is 9
+[DEBUG] 2018-09-23 21:56:48.942 [main] PerformanceLoggerAspect - Time Taken by execution(void org.springframework.boot.CommandLineRunner.run(String[])) is 7
+[DEBUG] 2018-09-23 21:56:56.236 [http-nio-8080-exec-2] PerformanceLoggerAspect - Time Taken by execution(List com.akki.productreviews.repository.ObjectionableKeyWordContentFileRepositoryImpl.readObjectionableKeyWords()) is 7
+[DEBUG] 2018-09-23 21:56:56.245 [http-nio-8080-exec-2] PerformanceLoggerAspect - Time Taken by execution(void com.akki.productreviews.service.ObjectionableContentCheckerServiceImpl.contentObjectionable(String)) is 20
+[DEBUG] 2018-09-23 21:56:56.247 [http-nio-8080-exec-2] PerformanceLoggerAspect - Time Taken by execution(ResponseEntity com.akki.productreviews.controller.ProductReviewsController.saveProdctReview(ProductReview)) is 27
