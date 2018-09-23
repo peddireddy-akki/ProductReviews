@@ -21,7 +21,7 @@ public class ApplicationException extends Exception {
 		this.errorCode = errorCode;
 		this.errorDetails = errorDetails;
 	}
-	
+
 	public ApplicationException(String errorCode, String errorMessage, String errorDetails) {
 		super(errorMessage);
 		this.exceptionTimeStamp = LocalDateTime.now();
@@ -61,4 +61,9 @@ public class ApplicationException extends Exception {
 		this.errorDetails = errorDetails;
 	}
 
+	public String toString() {
+
+		return "ExceptionTimeStamp: " + exceptionTimeStamp + ", errorCode: " + errorCode + ", Error Message: "
+				+ super.getMessage() + ", ErrorDetails: " + errorDetails + ", Error Cause";
+	}
 }
