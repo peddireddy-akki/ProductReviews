@@ -1,3 +1,11 @@
+/**
+* The ProductReviewsController is REST end point for ProductReviews subsystem. The primary purpose of this class is to
+* handle the http traffic that comes from Product reviews producing applications.
+* @author  Akki
+* @version 1.0
+* @since   2018-09-24 
+*/
+
 package com.akki.productreviews.controller;
 
 import java.time.LocalDateTime;

@@ -1,3 +1,10 @@
+/**
+* The primary responsibility of the ObjectionableKeyWordContentFileRepositoryImpl  is to read the Objectionable keywords from configuration file.
+* @author  Akki
+* @version 1.0
+* @since   2018-09-24 
+*/
+
 package com.akki.productreviews.repository;
 
 import java.io.BufferedReader;

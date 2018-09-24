@@ -1,3 +1,11 @@
+/**
+* The ApplicationException represents the details of the exceptions application exceptions. 
+
+* @author  Akki
+* @version 1.0
+* @since   2018-09-24 
+*/
+
 package com.akki.productreviews.common.exceptions;
 
 import java.time.LocalDateTime;

@@ -1,3 +1,10 @@
+/**
+* The ExceptionResponse represents the details of the error response that will be returned to the RESTS end point invoker.
+* @author  Akki
+* @version 1.0
+* @since   2018-09-24 
+*/
+
 package com.akki.productreviews.common.exceptions;
 
 import java.time.LocalDateTime;

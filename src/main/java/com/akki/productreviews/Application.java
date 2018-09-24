@@ -8,7 +8,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
-
+/**
+ * 
+ * @author Akki
+ * This class is application starter class for spring boot application
+ *
+ */
 @SpringBootApplication
 public class Application {
 

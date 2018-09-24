@@ -1,3 +1,10 @@
+/**
+* The ProductReview represents the details of the Product review details.
+* @author  Akki
+* @version 1.0
+* @since   2018-09-24 
+*/
+
 package com.akki.productreviews.model;
 
 import java.time.LocalDateTime;

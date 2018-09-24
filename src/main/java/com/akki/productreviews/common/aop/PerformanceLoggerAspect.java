@@ -1,3 +1,11 @@
+/**
+* The PerformanceLoggerAspect is responsible for capture and log the response times for all the public methods from the ProductReviews.
+*
+* @author  Akki
+* @version 1.0
+* @since   2018-09-24 
+*/
+
 package com.akki.productreviews.common.aop;
 
 import org.apache.logging.log4j.LogManager;

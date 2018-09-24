@@ -1,3 +1,12 @@
+/**
+* The primary responsibility of the class ObjectionableContentCheckerServiceImpl is to identify the objectionable 
+* keywords present from the product review comments. Objectionable keywords master list are configurable through file
+* @author  Akki
+* @version 1.0
+* @since   2018-09-24 
+*/
+
+
 package com.akki.productreviews.service;
 
 import java.util.ArrayList;
