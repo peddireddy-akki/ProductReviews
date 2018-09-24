@@ -78,8 +78,6 @@ public class ObjectionableContentCheckerServiceImplTest {
 		} catch (ApplicationException appException) {
 			String errorDetails = appException.getErrorDetails();
 
-			System.out.print(errorDetails);
-
 			assertEquals("Sucks found", true, errorDetails.contains("sucks"));
 			assertEquals("Shit found", true, errorDetails.contains("shit"));
 			assertEquals("Ape found", true, errorDetails.contains("ape"));
