@@ -1,0 +1,10 @@
+[DEBUG] 2018-09-24 06:28:10.629 [main] ProductReviewsController - input review comment:product is ok, mone3y, @pe, $hit, sssssuuuuccckkks, ugly and bad word
+[DEBUG] 2018-09-24 06:28:10.645 [main] ProductReviewsController - Purified review content:product is ok moneey ape shit sucks ugly and bad word
+[DEBUG] 2018-09-24 06:28:10.645 [main] ProductReviewsController - Matched with bad word: ape
+[DEBUG] 2018-09-24 06:28:10.645 [main] ProductReviewsController - Matched with bad word: sucks
+[DEBUG] 2018-09-24 06:28:10.645 [main] ProductReviewsController - Matched with bad word: ugly
+[DEBUG] 2018-09-24 06:28:10.645 [main] ProductReviewsController - Matched with bad word: shit
+[DEBUG] 2018-09-24 06:28:10.645 [main] ProductReviewsController - Matched with bad word: bad word
+[DEBUG] 2018-09-24 06:28:10.645 [main] ProductReviewsController - List of objectionable keywords found from review comments: [ape, sucks, ugly, shit, bad word]
+[DEBUG] 2018-09-24 06:28:10.663 [main] ProductReviewsController - input review comment:great product
+[DEBUG] 2018-09-24 06:28:10.663 [main] ProductReviewsController - Purified review content:great product

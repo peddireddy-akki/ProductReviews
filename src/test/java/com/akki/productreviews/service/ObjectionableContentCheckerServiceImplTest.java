@@ -70,7 +70,7 @@ public class ObjectionableContentCheckerServiceImplTest {
 	}
 
 	@Test
-	public void whenValidReviewContent_thenServiceRetunNoBadWordsList1() {
+	public void whenReviewCommentsContainObjectionableKeyWords_thenServiceRetunsAllObjectionableKeyWords() {
 
 		try {
 			String reviewComments = "Product is OK, mone3y, @pe, $hit, sssssuuuuccckkks, ugly and bad word";
