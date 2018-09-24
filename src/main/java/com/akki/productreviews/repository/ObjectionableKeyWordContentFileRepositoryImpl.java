@@ -61,7 +61,8 @@ public class ObjectionableKeyWordContentFileRepositoryImpl implements Objectiona
 						}
 						
 					} catch (IOException ex) {
-						throw new AppConfigException("Objectionable keyword content file missing");
+						objKeywrdList = null;
+						throw new AppConfigException("Objectionable keyword content file missing. Please contact customer support");
 
 					} finally {
 

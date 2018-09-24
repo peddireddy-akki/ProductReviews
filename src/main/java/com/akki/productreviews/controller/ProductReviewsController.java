@@ -14,7 +14,6 @@ import java.util.UUID;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.akki.productreviews.common.exceptions.AppConfigException;
 import com.akki.productreviews.common.exceptions.ApplicationException;
 import com.akki.productreviews.common.exceptions.ContentSizeException;
 import com.akki.productreviews.common.exceptions.ObjectionableContentFoundException;
@@ -66,6 +66,15 @@ public class ProductReviewsController {
 			contException.setHttpStatus(HttpStatus.BAD_REQUEST);
 			throw contException;
 		}
+		
+		
+		catch (AppConfigException appConfigException) {
+
+			appConfigException.setHttpStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+			throw appConfigException;
+		}
+		
+		
 		if (logger.isDebugEnabled()) {
 			logger.debug("Saved ProductReview :" + productReview);
 		}
