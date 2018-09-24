@@ -34,7 +34,6 @@ public class ObjectionableContentCheckerServiceImpl implements ObjectionableCont
 				.readObjectionableKeyWords();
 		List<String> objectionableContentFoundFromReviewComments = new ArrayList<String>();
 
-		// String revComents = new String(reviewComments);
 		String revewComentsAllInLowerCase = reviewComments.toLowerCase();
 		String purifiedReviewComments = purifyContent(revewComentsAllInLowerCase, objectionableKeyWordContent);
 		boolean isMatchFound;
