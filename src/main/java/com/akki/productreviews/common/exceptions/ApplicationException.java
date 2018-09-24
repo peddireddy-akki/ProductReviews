@@ -15,13 +15,6 @@ public class ApplicationException extends Exception {
 	private String errorCode; // 100, Objectionable Content Found
 	private String errorDetails;
 
-	public ApplicationException(String errorCode, String errorMessage, String errorDetails, Throwable cause) {
-		super(errorMessage, cause);
-		this.exceptionTimeStamp = LocalDateTime.now();
-		this.errorCode = errorCode;
-		this.errorDetails = errorDetails;
-	}
-
 	public ApplicationException(String errorCode, String errorMessage, String errorDetails) {
 		super(errorMessage);
 		this.exceptionTimeStamp = LocalDateTime.now();

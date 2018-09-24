@@ -47,12 +47,14 @@ public class ObjectionableContentCheckerServiceImplTest {
 		ObjectionableKeyWord objKeyWord3 = new ObjectionableKeyWord("sucks");
 		ObjectionableKeyWord objKeyWord4 = new ObjectionableKeyWord("ugly");
 		ObjectionableKeyWord objKeyWord5 = new ObjectionableKeyWord("shit");
+		ObjectionableKeyWord objKeyWord6 = new ObjectionableKeyWord("bad word");
 
 		objectionableKeyWordContent.add(objKeyWord1);
 		objectionableKeyWordContent.add(objKeyWord2);
 		objectionableKeyWordContent.add(objKeyWord3);
 		objectionableKeyWordContent.add(objKeyWord4);
 		objectionableKeyWordContent.add(objKeyWord5);
+		objectionableKeyWordContent.add(objKeyWord6);
 
 		Mockito.when(objectionableKeyWordContentRepository.readObjectionableKeyWords())
 				.thenReturn(objectionableKeyWordContent);
@@ -71,7 +73,7 @@ public class ObjectionableContentCheckerServiceImplTest {
 	public void whenValidReviewContent_thenServiceRetunNoBadWordsList1() {
 
 		try {
-			String reviewComments = "Product is OK, mone3y, @pe, $hit, sssssuuuuccckkks, ugly";
+			String reviewComments = "Product is OK, mone3y, @pe, $hit, sssssuuuuccckkks, ugly and bad word";
 			objectionableContentCheckerServiceImpl.contentObjectionable(reviewComments);
 		} catch (ApplicationException appException) {
 			String errorDetails = appException.getErrorDetails();
@@ -82,6 +84,7 @@ public class ObjectionableContentCheckerServiceImplTest {
 			assertEquals("Shit found", true, errorDetails.contains("shit"));
 			assertEquals("Ape found", true, errorDetails.contains("ape"));
 			assertEquals("Ugly found", true, errorDetails.contains("ugly"));
+			assertEquals("Bad word found", true, errorDetails.contains("bad word"));
 		}
 
 	}

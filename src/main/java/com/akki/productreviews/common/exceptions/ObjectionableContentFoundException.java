@@ -17,10 +17,6 @@ public class ObjectionableContentFoundException extends ApplicationException {
 
 	List<String> objectionableWordsList = null;
 
-	public ObjectionableContentFoundException(String objectionableContentDetails, Throwable cause) {
-		super(errorCode, errorMessage, objectionableContentDetails, cause);
-	}
-	
 	public ObjectionableContentFoundException(String objectionableContentDetails) {
 		super(errorCode, errorMessage, objectionableContentDetails);
 	}

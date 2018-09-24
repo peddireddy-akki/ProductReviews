@@ -26,48 +26,48 @@ public class ObjectionableContentCheckerServiceImpl implements ObjectionableCont
 
 	public void contentObjectionable(String reviewComments)
 			throws ObjectionableContentFoundException, AppConfigException, ContentSizeException {
-		
-		
+
 		if ((reviewComments == null) && (reviewComments.isEmpty())) {
 			throw new ContentSizeException("Review comments should not be empty");
 		}
 		List<ObjectionableKeyWord> objectionableKeyWordContent = objectionableKeyWordContentRepository
 				.readObjectionableKeyWords();
-		List<String> objectContent = new ArrayList<String>();
+		List<String> objectionableContentFoundFromReviewComments = new ArrayList<String>();
 
-		//String revComents = new String(reviewComments);
-		String revComents = reviewComments.toLowerCase();
-		String purifiedReviewComments = purifyContent(revComents, objectionableKeyWordContent);
+		// String revComents = new String(reviewComments);
+		String revewComentsAllInLowerCase = reviewComments.toLowerCase();
+		String purifiedReviewComments = purifyContent(revewComentsAllInLowerCase, objectionableKeyWordContent);
 		boolean isMatchFound;
-		for (ObjectionableKeyWord objKeyWordCon : objectionableKeyWordContent) {
+		for (ObjectionableKeyWord objKeyWord : objectionableKeyWordContent) {
 
-			Pattern pattern = Pattern.compile("\\b" + objKeyWordCon.getKeyWord().toLowerCase() + "\\b");
+			Pattern pattern = Pattern.compile("\\b" + objKeyWord.getKeyWord().toLowerCase() + "\\b");
 
 			Matcher matcher = pattern.matcher(purifiedReviewComments);
 			isMatchFound = matcher.find();
 
 			if (isMatchFound) {
-				if(logger.isDebugEnabled())
-				{
-					logger.debug("Matched with bad word: " + objKeyWordCon.getKeyWord());
-					objectContent.add(objKeyWordCon.getKeyWord());
+				objectionableContentFoundFromReviewComments.add(objKeyWord.getKeyWord());
+				if (logger.isDebugEnabled()) {
+					logger.debug("Matched with bad word: " + objKeyWord.getKeyWord());
 				}
 			}
 
 		}
-		if (objectContent.size() > 0) {
+		if (objectionableContentFoundFromReviewComments.size() > 0) {
+			if (logger.isDebugEnabled()) {
+				logger.debug("List of objectionable keywords found from review comments: " + objectionableContentFoundFromReviewComments);
+			}
 			throw new ObjectionableContentFoundException(
-					"The review comments has objectionable keywords that gives the meening of " + objectContent);
+					"The review comments has objectionable keywords that gives the meening of " + objectionableContentFoundFromReviewComments);
 		}
 
 	}
 
 	private String purifyContent(String reviewComment, List<ObjectionableKeyWord> objectionableKeyWordContent)
 			throws ContentSizeException {
-		
-		if(logger.isDebugEnabled())
-		{
-			logger.debug("input review comment:"+reviewComment);
+
+		if (logger.isDebugEnabled()) {
+			logger.debug("input review comment:" + reviewComment);
 		}
 
 		if ((reviewComment == null) && (reviewComment.isEmpty())) {
@@ -87,15 +87,14 @@ public class ObjectionableContentCheckerServiceImpl implements ObjectionableCont
 		reviewComment = reviewComment.replaceAll("[\\s]+", " ");
 		reviewComment = reviewComment.replaceAll("[^a-zA-Z0-9\\s]", "");
 
-		for (ObjectionableKeyWord objKeyWordCon : objectionableKeyWordContent) {
-			reviewComment = reviewComment.replaceAll(objKeyWordCon.getRegExpression(), objKeyWordCon.getKeyWord());
+		for (ObjectionableKeyWord objKeyWord : objectionableKeyWordContent) {
+			reviewComment = reviewComment.replaceAll(objKeyWord.getRegExpression(), objKeyWord.getKeyWord());
 
 		}
-		if(logger.isDebugEnabled())
-		{
-			logger.debug("Purified review content:" + reviewComment);		
+		if (logger.isDebugEnabled()) {
+			logger.debug("Purified review content:" + reviewComment);
 		}
-		
+
 		return reviewComment;
 	}
 
