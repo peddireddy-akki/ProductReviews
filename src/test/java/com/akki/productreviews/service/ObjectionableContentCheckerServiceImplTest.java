@@ -1,8 +1,10 @@
 package com.akki.productreviews.service;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
 import java.util.List;
-import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -77,15 +79,16 @@ public class ObjectionableContentCheckerServiceImplTest {
 			objectionableContentCheckerServiceImpl.contentObjectionable(reviewComments);
 		} catch (ApplicationException appException) {
 			String errorDetails = appException.getErrorDetails();
-			
-			System.out.println("Objectionable content: "+ errorDetails);
 
-			assertEquals("Sucks found", true, errorDetails.contains("sucks"));
-			assertEquals("Shit found", true, errorDetails.contains("shit"));
-			assertEquals("Ape found", true, errorDetails.contains("ape"));
-			assertEquals("Ugly found", true, errorDetails.contains("ugly"));
-			assertEquals("Bad word found", true, errorDetails.contains("bad word"));
-			assertEquals("Monkey  found", true, errorDetails.contains("monkey"));
+			System.out.println("Objectionable content: " + errorDetails);
+
+			assertTrue("Sucks found", errorDetails.contains("sucks"));
+			assertTrue("Shit found", errorDetails.contains("shit"));
+			assertTrue("Ape found", errorDetails.contains("ape"));
+			assertTrue("Ugly found", errorDetails.contains("ugly"));
+			assertTrue("Bad word found", errorDetails.contains("bad word"));
+			assertTrue("Monkey  found", errorDetails.contains("monkey"));
+
 		}
 
 	}
