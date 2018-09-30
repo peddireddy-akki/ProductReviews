@@ -36,7 +36,10 @@ public class ObjectionableContentCheckerServiceImpl implements ObjectionableCont
 	public void contentObjectionable(String reviewComments)
 			throws ObjectionableContentFoundException, AppConfigException, ContentSizeException {
 
-		if ((reviewComments == null) && (reviewComments.isEmpty())) {
+		if (reviewComments == null) {
+			throw new ContentSizeException("Review comments should not be empty");
+		}
+		if (reviewComments.isEmpty()) {
 			throw new ContentSizeException("Review comments should not be empty");
 		}
 		List<ObjectionableKeyWord> objectionableKeyWordContent = objectionableKeyWordContentRepository
@@ -81,19 +84,103 @@ public class ObjectionableContentCheckerServiceImpl implements ObjectionableCont
 		if ((reviewComment == null) && (reviewComment.isEmpty())) {
 			throw new ContentSizeException("Review comments should not be empty");
 		}
-		reviewComment = reviewComment.replaceAll("!", "i");
-		reviewComment = reviewComment.replaceAll("1", "i");
-		reviewComment = reviewComment.replaceAll("3", "e");
-		reviewComment = reviewComment.replaceAll("4", "a");
-		reviewComment = reviewComment.replaceAll("@", "a");
-		reviewComment = reviewComment.replaceAll("5", "s");
-		reviewComment = reviewComment.replaceAll("7", "t");
-		reviewComment = reviewComment.replaceAll("0", "o");
-		reviewComment = reviewComment.replaceAll("9", "g");
-		reviewComment = reviewComment.replaceAll("\\$", "s");
+		if(reviewComment.contains("!"))
+		{
+			reviewComment = reviewComment.replaceAll("!", "i");
+			if (logger.isDebugEnabled()) {
+				logger.debug("Review comments after replacing ! with i :" + reviewComment);
+			}
+		}
+		
+		if(reviewComment.contains("1"))
+		{
+				reviewComment = reviewComment.replaceAll("1", "i");
+				if (logger.isDebugEnabled()) {
+					logger.debug("Review comments after replacing 1 with i :" + reviewComment);
+				}
+		}
+		
+		if(reviewComment.contains("3"))
+		{
+			reviewComment = reviewComment.replaceAll("3", "e");
+			if (logger.isDebugEnabled()) {
+				logger.debug("Review comments after replacing 3 with 3 :" + reviewComment);
+			}
+		}
+		
+		if(reviewComment.contains("4"))
+		{
+				reviewComment = reviewComment.replaceAll("4", "a");
+				if (logger.isDebugEnabled()) {
+					logger.debug("Review comments after replacing 4 with a :" + reviewComment);
+				}
+		}
+		
+		if(reviewComment.contains("@"))
+		{
+				reviewComment = reviewComment.replaceAll("@", "a");
+				if (logger.isDebugEnabled()) {
+					logger.debug("Review comments after replacing @ with a :" + reviewComment);
+				}
+		}
+		
+		if(reviewComment.contains("5"))
+		{				
+				reviewComment = reviewComment.replaceAll("5", "s");
+				if (logger.isDebugEnabled()) {
+					logger.debug("Review comments after replacing 5 with s :" + reviewComment);
+				}
+		}
+		
+		if(reviewComment.contains("7"))
+		{
+			reviewComment = reviewComment.replaceAll("7", "t");
+			if (logger.isDebugEnabled()) {
+				logger.debug("Review comments after replacing t with t :" + reviewComment);
+			}
+		}
+		
+		if(reviewComment.contains("0"))
+		{
+			reviewComment = reviewComment.replaceAll("0", "o");
+			if (logger.isDebugEnabled()) {
+				logger.debug("Review comments after replacing 0 with o :" + reviewComment);
+			}
+			
+		}
+		
+		if(reviewComment.contains("9"))
+		{
+			reviewComment = reviewComment.replaceAll("9", "g");
+			if (logger.isDebugEnabled()) {
+				logger.debug("Review comments after replacing 9 with g :" + reviewComment);
+			}
+		}
+		
+		if(reviewComment.contains("$"))
+		{
+			reviewComment = reviewComment.replaceAll("\\$", "s");
+			if (logger.isDebugEnabled()) {
+				logger.debug("Review comments after replacing \\$ with s :" + reviewComment);
+			}
+		}
 
-		reviewComment = reviewComment.replaceAll("[\\s]+", " ");
-		reviewComment = reviewComment.replaceAll("[^a-zA-Z0-9\\s]", "");
+		if(reviewComment.contains("\\s"))
+		{
+			reviewComment = reviewComment.replaceAll("[\\s]+", " ");
+			if (logger.isDebugEnabled()) {
+				logger.debug("Review comments after replacing consecutive spaces with single space :" + reviewComment);
+			}
+		}
+		
+		
+		if(reviewComment.contains("\\s"))
+		{
+			reviewComment = reviewComment.replaceAll("[^a-zA-Z0-9\\s]", "");
+			if (logger.isDebugEnabled()) {
+				logger.debug("Review comments after replacing non alphabets, non digits and non spaces with nothing :" + reviewComment);
+			}
+		}
 
 		for (ObjectionableKeyWord objKeyWord : objectionableKeyWordContent) {
 			reviewComment = reviewComment.replaceAll(objKeyWord.getRegExpression(), objKeyWord.getKeyWord());

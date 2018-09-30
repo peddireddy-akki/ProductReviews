@@ -85,11 +85,11 @@ public class ProductReviewsController {
 		if (productReviewContent == null) {
 			throw new ContentSizeException("Product review content can't be empty");
 		}
-		if ((productReviewContent != null) && (productReviewContent.length() <= 20)) {
+		if (productReviewContent.length() <= 20) {
 			throw new ContentSizeException("Product review content should be atleast 20 characters");
 		}
 
-		if ((productReviewContent != null) && (productReviewContent.length() > 200)) {
+		if (productReviewContent.length() > 200) {
 			throw new ContentSizeException("Product review content should be less than 200 characters");
 		}
 

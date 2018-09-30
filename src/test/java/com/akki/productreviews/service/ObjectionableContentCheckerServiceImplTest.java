@@ -73,16 +73,19 @@ public class ObjectionableContentCheckerServiceImplTest {
 	public void whenReviewCommentsContainObjectionableKeyWords_thenServiceRetunsAllObjectionableKeyWords() {
 
 		try {
-			String reviewComments = "Product is OK, mone3y, @pe, $hit, sssssuuuuccckkks, ugly and bad word";
+			String reviewComments = "Product is OK, monk3y, @pe, $hit, sssssuuuuccckkks, ugly and bad word";
 			objectionableContentCheckerServiceImpl.contentObjectionable(reviewComments);
 		} catch (ApplicationException appException) {
 			String errorDetails = appException.getErrorDetails();
+			
+			System.out.println("Objectionable content: "+ errorDetails);
 
 			assertEquals("Sucks found", true, errorDetails.contains("sucks"));
 			assertEquals("Shit found", true, errorDetails.contains("shit"));
 			assertEquals("Ape found", true, errorDetails.contains("ape"));
 			assertEquals("Ugly found", true, errorDetails.contains("ugly"));
 			assertEquals("Bad word found", true, errorDetails.contains("bad word"));
+			assertEquals("Monkey  found", true, errorDetails.contains("monkey"));
 		}
 
 	}
