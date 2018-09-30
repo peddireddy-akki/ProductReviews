@@ -65,7 +65,7 @@ public class ObjectionableContentCheckerServiceImplTest {
 	public void whenValidReviewContent_thenServiceRetunNoBadWordsList()
 			throws ObjectionableContentFoundException, AppConfigException, ContentSizeException {
 
-		String reviewComments = "Great product";
+		String reviewComments = "Great's ) product";
 		objectionableContentCheckerServiceImpl.contentObjectionable(reviewComments);
 	}
 
