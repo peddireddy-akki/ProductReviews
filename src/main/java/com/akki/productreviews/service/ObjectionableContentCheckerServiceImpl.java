@@ -162,7 +162,14 @@ public class ObjectionableContentCheckerServiceImpl implements ObjectionableCont
 				logger.debug("Review comments after replacing consecutive spaces with single space :" + reviewComment);
 			}
 		}
-		reviewComment = reviewComment.replaceAll("'s", "");
+		
+		if (reviewComment.contains("'s")) {
+			reviewComment = reviewComment.replaceAll("'s", "");
+			if (logger.isDebugEnabled()) {
+				logger.debug("Review comments after replacing consecutive spaces with single space :" + reviewComment);
+			}
+		}
+		
 
 		reviewComment = reviewComment.replaceAll("[^a-zA-Z0-9\\s]", "");
 
