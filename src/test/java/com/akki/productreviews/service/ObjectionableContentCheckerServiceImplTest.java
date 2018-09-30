@@ -65,7 +65,7 @@ public class ObjectionableContentCheckerServiceImplTest {
 	public void whenValidReviewContent_thenServiceRetunNoBadWordsList()
 			throws ObjectionableContentFoundException, AppConfigException, ContentSizeException {
 
-		String reviewComments = "Great's ) product";
+		String reviewComments = "Great product";
 		objectionableContentCheckerServiceImpl.contentObjectionable(reviewComments);
 	}
 
@@ -73,7 +73,7 @@ public class ObjectionableContentCheckerServiceImplTest {
 	public void whenReviewCommentsContainObjectionableKeyWords_thenServiceRetunsAllObjectionableKeyWords() {
 
 		try {
-			String reviewComments = "Product is OK, monk3y, @pe, $hit, sssssuuuuccckkks, ugly and bad word";
+			String reviewComments = "Product is OK, monk3y, @pe, $hit, sssssuuuuccckkks, ugly's and bad word";
 			objectionableContentCheckerServiceImpl.contentObjectionable(reviewComments);
 		} catch (ApplicationException appException) {
 			String errorDetails = appException.getErrorDetails();
