@@ -82,7 +82,10 @@ public class ObjectionableContentCheckerServiceImpl implements ObjectionableCont
 			logger.debug("input review comment:" + reviewComment);
 		}
 
-		if ((reviewComment == null) && (reviewComment.isEmpty())) {
+		if (reviewComment == null) {
+			throw new ContentSizeException("Review comments should not be empty");
+		}
+		if (reviewComment.isEmpty()) {
 			throw new ContentSizeException("Review comments should not be empty");
 		}
 		if (reviewComment.contains("!")) {

@@ -1,6 +1,5 @@
 package com.akki.productreviews.service;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
@@ -26,13 +25,14 @@ import com.akki.productreviews.repository.ObjectionableKeyWordContentRepository;
 @RunWith(SpringRunner.class)
 public class ObjectionableContentCheckerServiceImplTest {
 
+	
 	@TestConfiguration
 	static class ObjectionableKeyWordContentFileRepositoryImplConfiguration {
 		@Bean
 		public ObjectionableContentCheckerServiceImpl ObjectionableContentCheckerServiceImpl() {
 			return new ObjectionableContentCheckerServiceImpl();
 		}
-	}
+	} 
 
 	@Autowired
 	private ObjectionableContentCheckerServiceImpl objectionableContentCheckerServiceImpl;

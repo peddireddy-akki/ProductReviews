@@ -55,6 +55,7 @@ public class ProductReviewsController {
 		try {
 			validateInputContent(productReview);
 			String productReviewContent = productReview.getReviewContent();
+
 			contentChecker.contentObjectionable(productReviewContent);
 			productReview.setProductReviewID(UUID.randomUUID().toString());
 		} catch (ObjectionableContentFoundException objectionalContentException) {
@@ -66,20 +67,19 @@ public class ProductReviewsController {
 			contException.setHttpStatus(HttpStatus.BAD_REQUEST);
 			throw contException;
 		}
-		
-		
+
 		catch (AppConfigException appConfigException) {
 
 			appConfigException.setHttpStatus(HttpStatus.INTERNAL_SERVER_ERROR);
 			throw appConfigException;
 		}
-		
-		
+
 		if (logger.isDebugEnabled()) {
 			logger.debug("Saved ProductReview :" + productReview);
 		}
-		return new ResponseEntity<ProductReview>(productReview, HttpStatus.OK);
+		return new ResponseEntity<ProductReview>(productReview, HttpStatus.CREATED);
 	}
+
 	private void validateInputContent(ProductReview productReview) throws ContentSizeException {
 		String productReviewContent = productReview.getReviewContent();
 		if (productReviewContent == null) {
