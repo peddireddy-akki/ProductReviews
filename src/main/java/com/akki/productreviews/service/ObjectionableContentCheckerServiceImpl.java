@@ -69,7 +69,7 @@ public class ObjectionableContentCheckerServiceImpl implements ObjectionableCont
 						+ objectionableContentFoundFromReviewComments);
 			}
 			throw new ObjectionableContentFoundException(
-					"The review comments has objectionable keywords that gives the meening of "
+					"The review comments has objectionable keywords that gives the meaning of "
 							+ objectionableContentFoundFromReviewComments);
 		}
 
