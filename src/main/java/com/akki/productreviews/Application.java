@@ -5,6 +5,10 @@
  */
 package com.akki.productreviews;
 
+import java.util.TimeZone;
+
+import javax.annotation.PostConstruct;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.boot.SpringApplication;
@@ -20,5 +24,10 @@ public class Application {
 
 		System.out.println("\n\n\n ProductReviewApplication Started Successfull");
 
+	}
+	
+	@PostConstruct
+	void started() {
+	    TimeZone.setDefault(TimeZone.getTimeZone("Etc/UTC"));
 	}
 }
