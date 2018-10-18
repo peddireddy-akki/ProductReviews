@@ -3,14 +3,12 @@
  * This class is application starter class for spring boot application
  *
  */
-package com.akki.productreviews;
+package com.akki;
 
 import java.util.TimeZone;
 
 import javax.annotation.PostConstruct;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
