@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,8 +21,9 @@ public class BuyerController {
 	static {
 		buyers = new ArrayList<Buyer>();
 		Buyer buyer1 = new Buyer(Long.parseLong("1"), "Peddi Reddy", "Akki");
-		Buyer buyer2 = new Buyer(Long.parseLong("2"), "Geetika", "Akki");
-		Buyer buyer3 = new Buyer(Long.parseLong("3"), "Sowmya", "Akki");
+		Buyer buyer2 = new Buyer(Long.parseLong("2"), "Sowmya", "Akki");
+		Buyer buyer3 = new Buyer(Long.parseLong("3"), "Geetika", "Akki");
+		
 		
 		//System.out.println("\n\n\n\n\n BuyerID: "+ Long.parseLong("1"));
 		
@@ -29,7 +31,7 @@ public class BuyerController {
 		buyers.add(buyer2);
 		buyers.add(buyer3);
 	}
-	
+	@CrossOrigin(origins = "http://localhost:8100")
 	@RequestMapping(value= "/buyer", method= RequestMethod.GET)
 	public ResponseEntity<List<Buyer>> getBuyers(){
 		if(buyers.isEmpty())
